@@ -2,16 +2,16 @@ package dsc.machung.bantuanbencana;
 
 public class UserModel {
 
-    String username;
-    String password;
-    int isLogin;
-    String photo;
-    String name;
-    String email;
-    String telp;
-    String address;
-    int anonymous;
-    int total;
+    private String username;
+    private String password;
+    private int isLogin;
+    private String photo;
+    private String name;
+    private String email;
+    private String telp;
+    private String address;
+    private int anonymous;
+    private int total;
 
     public UserModel() { }
 
