@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#2a4d69</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#EAF3F8</color>
     <color name="colorPrimaryDark">#2a4d69</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorAccent">#2a4d69</color>
 
-    <color name="grey">#D3CECE</color>
+    <color name="blue">#2196F3</color>
     <color name="transparent">#000000</color>
     <color name="gradStart">#2a4d69</color>
     <color name="gradStop">#2a4d69</color>
+    
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#2a4d69</color>
 </resources>
