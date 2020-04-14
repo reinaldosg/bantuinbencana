@@ -2,11 +2,7 @@ package dsc.machung.bantuanbencana.Task;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,14 +15,13 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
-import dsc.machung.bantuanbencana.DatabaseHandler;
 import dsc.machung.bantuanbencana.R;
-import dsc.machung.bantuanbencana.UserModel;
 import dsc.machung.bantuanbencana.Util.Global;
 import dsc.machung.bantuanbencana.Util.Tools;
+import dsc.machung.bantuanbencana.Util.db.PostsDatabaseHelper;
+import dsc.machung.bantuanbencana.Util.db.UserDataCRUD;
 import dsc.machung.bantuanbencana.apimodel.LoginRequestModel;
 import dsc.machung.bantuanbencana.apimodel.LoginResponseModel;
-import dsc.machung.bantuanbencana.http.ResponseBase;
 
 
 public class LoginTask{
@@ -54,8 +49,8 @@ public class LoginTask{
 
                 if(Global.SUCCESS_RESPONSE_CODE.equalsIgnoreCase(userModel.getCode())) {
                     Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
-                    DatabaseHandler dbHandler = new DatabaseHandler(activity);
-                    dbHandler.addRecord(userModel.getData());
+                    UserDataCRUD userHandler = new UserDataCRUD();
+                    userHandler.addRecord(activity.getApplicationContext(), userModel.getData());
                 }
                 else{
                     Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();

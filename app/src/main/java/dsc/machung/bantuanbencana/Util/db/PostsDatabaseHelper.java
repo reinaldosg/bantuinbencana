@@ -1,4 +1,4 @@
-package dsc.machung.bantuanbencana;
+package dsc.machung.bantuanbencana.Util.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,22 +8,8 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
 
     // Database Info
     private static final String DATABASE_NAME = "BantuanBencana";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
-    // Table Names
-    private static final String TABLE_USERDATA = "UserData";
-
-    // Table Columns
-    private static final String KEY_USERNAME = "username";
-    private static final String KEY_PASSWORD = "password";
-    private static final String KEY_ISLOGIN = "islogin";
-    private static final String KEY_PHOTO = "photo";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_EMAIL= "email";
-    private static final String KEY_TELP = "telp";
-    private static final String KEY_ADDRESS = "address";
-    private static final String KEY_SETTING = "setting";
-    private static final String KEY_TOTAL = "total";
 
     private static PostsDatabaseHelper sInstance;
 
@@ -57,17 +43,16 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
     // If a database already exists on disk with the same DATABASE_NAME, this method will NOT be called.
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_USERDATA_TABLE = "CREATE TABLE " + TABLE_USERDATA + "("
-                + KEY_USERNAME + " VARCHAR(40) PRIMARY KEY,"
-                + KEY_PASSWORD + " VARCHAR(40),"
-                + KEY_ISLOGIN + " INT(1),"
-                + KEY_PHOTO + " VARCHAR(256),"
-                + KEY_NAME + " VARCHAR(40),"
-                + KEY_EMAIL + " VARCHAR(256),"
-                + KEY_TELP + " VARCHAR(40),"
-                + KEY_ADDRESS + " VARCHAR(256),"
-                + KEY_SETTING + " INT(1),"
-                + KEY_TOTAL + " INT(20)" + ")";
+        String CREATE_USERDATA_TABLE = "CREATE TABLE " + DatabaseTable.TABLE_USERDATA + "("
+                + DatabaseTable.USERDATA_USERNAME + " VARCHAR(40) PRIMARY KEY,"
+                + DatabaseTable.USERDATA_ISLOGIN + " INT(1),"
+                + DatabaseTable.USERDATA_PHOTO + " VARCHAR(256),"
+                + DatabaseTable.USERDATA_NAME + " VARCHAR(40),"
+                + DatabaseTable.USERDATA_EMAIL + " VARCHAR(256),"
+                + DatabaseTable.USERDATA_TELP + " VARCHAR(40),"
+                + DatabaseTable.USERDATA_ADDRESS + " VARCHAR(256),"
+                + DatabaseTable.USERDATA_SETTING + " INT(1),"
+                + DatabaseTable.USERDATA_TOTAL + " INT(20)" + ")";
 
         db.execSQL(CREATE_USERDATA_TABLE);
 
@@ -80,7 +65,7 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
             // Simplest implementation is to drop all old tables and recreate them
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERDATA);
+            db.execSQL("DROP TABLE IF EXISTS " + DatabaseTable.TABLE_USERDATA);
             onCreate(db);
         }
     }
