@@ -3,7 +3,6 @@ package dsc.machung.bantuanbencana;
 public class UserModel {
 
     private String username;
-    private String password;
     private int isLogin;
     private String photo;
     private String name;
@@ -15,10 +14,9 @@ public class UserModel {
 
     public UserModel() { }
 
-    public UserModel(String username, String password, int isLogin, String photo, String name, String email,
+    public UserModel(String username, int isLogin, String photo, String name, String email,
                      String telp, String address, int anonymous, int total){
         this.username = username;
-        this.password = password;
         this.isLogin = isLogin;
         this.photo = photo;
         this.name = name;
@@ -47,10 +45,6 @@ public class UserModel {
 
     public String getName() {
         return name;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public String getPhoto() {
@@ -89,10 +83,6 @@ public class UserModel {
         this.name = name;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public void setPhoto(String photo) {
         this.photo = photo;
     }
@@ -109,10 +99,9 @@ public class UserModel {
         this.username = username;
     }
 
-    public void updateProfile( String username, String password, int isLogin, String photo, String name, String email,
+    public void updateProfile( String username, int isLogin, String photo, String name, String email,
                                String telp, String address, int anonymous, int total ) {
         this.username = username;
-        this.password = password;
         this.isLogin = isLogin;
         this.photo = photo;
         this.name = name;
