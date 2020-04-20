@@ -108,4 +108,18 @@ public class UserModel {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public void updateProfile( String username, String password, int isLogin, String photo, String name, String email,
+                               String telp, String address, int anonymous, int total ) {
+        this.username = username;
+        this.password = password;
+        this.isLogin = isLogin;
+        this.photo = photo;
+        this.name = name;
+        this.email = email;
+        this.telp = telp;
+        this.address = address;
+        this.anonymous = anonymous;
+        this.total = total;
+    }
 }

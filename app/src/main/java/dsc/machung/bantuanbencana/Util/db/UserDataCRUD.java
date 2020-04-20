@@ -54,8 +54,7 @@ public class UserDataCRUD {
             db.endTransaction();
         }
     }
-
-
+    
     public long addOrUpdateRecord(Context context, UserModel userModel) {
         // The database connection is cached so it's not expensive to call getWriteableDatabase() multiple times.
         SQLiteDatabase db = PostsDatabaseHelper.getInstance(context).getWritableDatabase();
