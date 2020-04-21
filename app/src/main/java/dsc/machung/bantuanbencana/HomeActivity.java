@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Fragment fragment;
-        fragment = new BlankFragment();
+        fragment = new BlankFragmentDetail();
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.commit();

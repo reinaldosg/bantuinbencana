@@ -2,6 +2,7 @@ package dsc.machung.bantuanbencana.Task;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -15,6 +16,7 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import dsc.machung.bantuanbencana.HomeActivity;
 import dsc.machung.bantuanbencana.R;
 import dsc.machung.bantuanbencana.Util.Global;
 import dsc.machung.bantuanbencana.Util.Tools;
@@ -56,6 +58,7 @@ public class LoginTask{
                     Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
+                activity.startActivity(new Intent(activity, HomeActivity.class));
             }
         }, new Response.ErrorListener() {
             @Override
