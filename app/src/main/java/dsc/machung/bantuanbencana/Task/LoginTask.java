@@ -53,12 +53,12 @@ public class LoginTask{
                     Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
                     UserDataCRUD userHandler = new UserDataCRUD();
                     userHandler.addRecord(activity.getApplicationContext(), userModel.getData());
+                    activity.startActivity(new Intent(activity, HomeActivity.class));
                 }
                 else{
                     Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
-                activity.startActivity(new Intent(activity, HomeActivity.class));
             }
         }, new Response.ErrorListener() {
             @Override
