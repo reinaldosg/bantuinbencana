@@ -1,4 +1,4 @@
-package dsc.machung.bantuanbencana;
+package dsc.machung.bantuanbencana.Model;
 
 public class UserModel {
 

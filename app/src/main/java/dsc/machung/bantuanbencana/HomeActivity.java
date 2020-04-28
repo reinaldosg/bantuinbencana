@@ -1,7 +1,5 @@
 package dsc.machung.bantuanbencana;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +13,8 @@ import android.widget.AdapterView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import dsc.machung.bantuanbencana.Fragment.ProfileFragment;
+
 public class HomeActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,
         BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        loadFragment(new BlankFragmentDetail());
+        loadFragment(new ProfileFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.bn_main);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //        Fragment fragment;
-//        fragment = new BlankFragmentDetail();
+//        fragment = new DetailBencanaFragment();
 //        FragmentManager fragmentManager = getFragmentManager();
 //        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //        fragmentTransaction.commit();
@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         Fragment fragment = null;
         switch (item.getItemId()){
             case R.id.homeNav:
-                fragment = new BlankFragmentDetail();
+                fragment = new ProfileFragment();
                 break;
             case R.id.historyNav:
 //                fragment = new SearchFragment();

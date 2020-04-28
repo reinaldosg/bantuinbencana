@@ -4,13 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.service.autofill.UserData;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import dsc.machung.bantuanbencana.UserModel;
+import dsc.machung.bantuanbencana.Model.UserModel;
 
 import static android.content.ContentValues.TAG;
 import static dsc.machung.bantuanbencana.Util.db.DatabaseTable.USERDATA_ADDRESS;

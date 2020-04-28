@@ -2,7 +2,7 @@ package dsc.machung.bantuanbencana.apimodel;
 
 import com.google.gson.annotations.SerializedName;
 
-import dsc.machung.bantuanbencana.UserModel;
+import dsc.machung.bantuanbencana.Model.UserModel;
 import dsc.machung.bantuanbencana.http.ResponseBase;
 
 public class LoginResponseModel extends ResponseBase {

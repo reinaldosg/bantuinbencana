@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorSecondary"
     tools:context=".LoginActivity">
     <ImageView
         android:id="@+id/logo"
@@ -21,19 +21,19 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
         android:layout_width="250dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="@+id/logo"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/logo"
+        android:textColorHint="@color/colorPrimaryDark"
         app:boxStrokeColor="@color/colorPrimaryDark"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="250dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:background="@drawable/edittxt_bg"
             android:ems="20"
             android:hint="Username"
             android:inputType="textPersonName"
@@ -45,10 +45,12 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
         android:layout_width="250dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         app:passwordToggleEnabled="true"
         tools:ignore="MissingConstraints"
+        android:textColorHint="@color/colorPrimaryDark"
+
         app:layout_constraintBottom_toTopOf="@+id/rememberme"
         app:layout_constraintEnd_toEndOf="@+id/username"
         app:layout_constraintHorizontal_bias="0.0"
@@ -58,8 +60,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:background="@drawable/edittxt_bg"
+            android:layout_height="wrap_content"
             android:ems="20"
             android:hint="Password"
             android:inputType="textPassword"
@@ -84,7 +85,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="160dp"
-        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/blue"
+        style="?attr/materialButtonOutlinedStyle"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:text="Login"

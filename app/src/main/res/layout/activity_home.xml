@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorSecondary"
     tools:context=".HomeActivity">
 
 <!--    <LinearLayout-->
@@ -15,8 +15,8 @@
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
 <!--            android:id="@+id/fragmentID"-->
-<!--            android:name="dsc.machung.bantuanbencana.BlankFragmentDetail"/>-->
-<!--            android:name="dsc.machung.bantuanbencana.BlankFragment"/>-->
+<!--            android:name="dsc.machung.bantuanbencana.DetailBencanaFragmentnt"/>-->
+<!--            android:name="dsc.machung.bantuanbencana.ProfileFragmentnt"/>-->
 <!--    </LinearLayout>-->
 
     <FrameLayout
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorSecondary"
         app:itemIconTint="@drawable/state_bnv"
         app:itemTextColor="@drawable/state_bnv"
         app:menu="@menu/main_menu"

@@ -12,9 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.sql.Time;
-import java.util.Timer;
-import java.util.TimerTask;
+import dsc.machung.bantuanbencana.Fragment.DetailBencanaFragment;
 
 public class DetailActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
@@ -34,7 +32,7 @@ public class DetailActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Fragment fragment;
-        fragment = new BlankFragmentDetail();
+        fragment = new DetailBencanaFragment();
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.commit();
