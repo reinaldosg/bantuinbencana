@@ -53,6 +53,7 @@ public class LoginTask{
                 if(Global.SUCCESS_RESPONSE_CODE.equalsIgnoreCase(userModel.getCode())) {
                     UserDataCRUD userHandler = new UserDataCRUD();
                     userHandler.addRecord(activity.getApplicationContext(), userModel.getData());
+                    Global.USER = userModel.getData();
                     Intent intent = new Intent(activity, HomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|FLAG_ACTIVITY_SINGLE_TOP );
                     activity.startActivity(intent);

@@ -15,6 +15,7 @@ import java.util.List;
 
 import dsc.machung.bantuanbencana.Model.UserModel;
 import dsc.machung.bantuanbencana.Task.LoginTask;
+import dsc.machung.bantuanbencana.Util.Global;
 import dsc.machung.bantuanbencana.Util.db.UserDataCRUD;
 import dsc.machung.bantuanbencana.apimodel.Login.LoginRequestModel;
 
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         UserDataCRUD userHandler = new UserDataCRUD();
         List<UserModel> listUser = userHandler.getAllRecords(this);
         if(listUser.size() > 0){
+            Global.USER = listUser.get(listUser.size()-1);
             Intent intent = new Intent(this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|FLAG_ACTIVITY_SINGLE_TOP );
             startActivity(intent);
