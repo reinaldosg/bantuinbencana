@@ -1,4 +1,4 @@
-package dsc.machung.bantuanbencana.apimodel;
+package dsc.machung.bantuanbencana.apimodel.Login;
 
 import dsc.machung.bantuanbencana.http.RequestBase;
 

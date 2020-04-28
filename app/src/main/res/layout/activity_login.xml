@@ -75,13 +75,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:text="Remember Me"
-        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/password" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="160dp"
@@ -89,8 +89,8 @@
         style="?attr/materialButtonOutlinedStyle"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:text="Login"
-        android:textColor="@color/colorPrimary"
+        android:text="@string/login"
+        android:textColor="@color/colorSecondary"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,4 +98,16 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registerbtn"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

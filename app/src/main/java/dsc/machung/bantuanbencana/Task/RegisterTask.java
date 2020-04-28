@@ -12,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -23,14 +24,13 @@ import dsc.machung.bantuanbencana.Util.Tools;
 import dsc.machung.bantuanbencana.Util.db.UserDataCRUD;
 import dsc.machung.bantuanbencana.apimodel.Login.LoginRequestModel;
 import dsc.machung.bantuanbencana.apimodel.Login.LoginResponseModel;
+import dsc.machung.bantuanbencana.apimodel.Register.RegisterRequestModel;
+import dsc.machung.bantuanbencana.apimodel.Register.RegisterResponseModel;
 
-import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
-
-
-public class LoginTask{
+public class RegisterTask {
     private Activity activity;
-    private LoginRequestModel model;
-    public LoginTask(Activity activity, LoginRequestModel model){
+    private RegisterRequestModel model;
+    public RegisterTask(Activity activity, RegisterRequestModel model){
         this.activity = activity;
         this.model = model;
     }
@@ -44,24 +44,26 @@ public class LoginTask{
         } catch (Exception e){}
 
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.POST, Global.API_LOGIN, json, new Response.Listener<JSONObject>() {
+                Request.Method.POST, Global.API_REGISTER, json, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 String responseString = Tools.fix(response).toString();
-                LoginResponseModel userModel = new Gson().fromJson(responseString, LoginResponseModel.class);
+                RegisterResponseModel responseModal = new Gson().fromJson(responseString, RegisterResponseModel.class);
 
-                if(Global.SUCCESS_RESPONSE_CODE.equalsIgnoreCase(userModel.getCode())) {
-                    UserDataCRUD userHandler = new UserDataCRUD();
-                    userHandler.addRecord(activity.getApplicationContext(), userModel.getData());
-                    Intent intent = new Intent(activity, HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|FLAG_ACTIVITY_SINGLE_TOP );
-                    activity.startActivity(intent);
-                    activity.finish();
+                if(Global.SUCCESS_RESPONSE_CODE.equalsIgnoreCase(responseModal.getCode())) {
+                    LoginRequestModel userModel = new LoginRequestModel(model.getUsername(), model.getPassword());
+                    LoginTask loginTask = new LoginTask(activity, userModel);
+                    loginTask.execute();
+                    activity.finishAffinity();
+                }
+                else if(Global.REGISTER_FAILED_RESPONSE_CODE.equalsIgnoreCase(responseModal.getCode())){
+                    Toast.makeText(activity, activity.getString(R.string.usernameTaken), Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Register Failed", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
+
             }
         }, new Response.ErrorListener() {
             @Override
