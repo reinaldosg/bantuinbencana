@@ -7,22 +7,11 @@
     android:background="@color/colorSecondary"
     tools:context=".HomeActivity">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-
-<!--        <fragment-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:id="@+id/fragmentID"-->
-<!--            android:name="dsc.machung.bantuanbencana.DetailBencanaFragmentnt"/>-->
-<!--            android:name="dsc.machung.bantuanbencana.ProfileFragmentnt"/>-->
-<!--    </LinearLayout>-->
-
     <FrameLayout
         android:id="@+id/fl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bn_main"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

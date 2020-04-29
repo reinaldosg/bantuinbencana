@@ -10,9 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import dsc.machung.bantuanbencana.Fragment.ListBencanaFragment;
 import dsc.machung.bantuanbencana.Fragment.ProfileFragment;
 
 public class HomeActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,
@@ -23,10 +25,9 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        loadFragment(new ProfileFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.bn_main);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-
+        bottomNavigationView.setSelectedItemId(R.id.homeNav);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
@@ -55,13 +56,13 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         Fragment fragment = null;
         switch (item.getItemId()){
             case R.id.homeNav:
-                fragment = new ProfileFragment();
+                fragment = new ListBencanaFragment();
                 break;
             case R.id.historyNav:
-//                fragment = new SearchFragment();
+                Toast.makeText(getApplicationContext(),"Coming soon!",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.profileNav:
-//                fragment = new FavoriteFragment();
+                fragment = new ProfileFragment();
                 break;
         }
         return loadFragment(fragment);    }
